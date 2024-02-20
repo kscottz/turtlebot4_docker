@@ -1,5 +1,12 @@
 # turtlebot4 Docker
 
+
+## Build the docker image
+
+`docker build . -t tb4`
+
+
+## Run the container
 ```bash
 docker run \
 --interactive \
