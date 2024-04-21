@@ -26,5 +26,7 @@ rocker --x11 --devices=/dev/dri tb4 bash
 Inside the container, run
 
 ```bash
-ros2 launch turtlebot4_ignition_bringup turtlebot4_ignition.launch.py
+ros2 launch turtlebot4_ignition_bringup turtlebot4_ignition.launch.py world:=maze
 ```
+
+
