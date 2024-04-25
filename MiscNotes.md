@@ -62,7 +62,7 @@ https://rocker-project.org/use/shared_volumes.html
 # THIS IS THE COMMAND YOU WANT
 docker run --rm -ti --user root -v /home/kscottz/Code/shared_dir/:/opt/ros/overlay_ws/src/shared_dir  tb4 bash
 
-https://github.com/ros-controls/gz_ros2_control/
+git clone https://github.com/ros-controls/gz_ros2_control/
 
 # Multiple directories
 docker run --rm -ti --user root -v /home/kscottz/Code/gz_ros2_control/:/opt/ros/overlay_ws/src/gz_ros2_control -v /home/kscottz/Code/shared_dir/:/opt/ros/overlay_ws/src/shared_dir  tb4 bash^C
@@ -76,3 +76,10 @@ Let's say you have a Docker container with the name `tb4` and you would like to 
 It is worth noting that you can use the -v flag multiple times during a single command.
 
 https://github.com/rocker-org/website/edit/master/use/shared_volumes.md
+
+docker run --rm -ti --user root -v /home/kscottz/Code/gz_ros2_control/:/opt/ros/overlay_ws/src/gz_ros2_control -v /home/kscottz/Code/tb4_toy/:/opt/ros/overlay_ws/src/tb4_toy  tb4 bash
+
+
+THIS IS THE WORKING COMMAND
+rocker --x11 --devices=/dev/dri  --volume=/home/kscottz/Code/gz_ros2_control/:/opt/ros/overlay_ws/src/gz_ros2_control --volume=/home/kscottz/Code/shared_dir/:/opt/ros/overlay_ws/src/shared_dir  tb4 bash
+
