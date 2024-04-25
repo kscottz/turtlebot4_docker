@@ -83,3 +83,22 @@ docker run --rm -ti --user root -v /home/kscottz/Code/gz_ros2_control/:/opt/ros/
 THIS IS THE WORKING COMMAND
 rocker --x11 --devices=/dev/dri  --volume=/home/kscottz/Code/gz_ros2_control/:/opt/ros/overlay_ws/src/gz_ros2_control --volume=/home/kscottz/Code/shared_dir/:/opt/ros/overlay_ws/src/shared_dir  tb4 bash
 
+rocker --x11 --devices=/dev/dri  --volume=/home/kscottz/Code/gz_ros2_control/:/opt/ros/overlay_ws/src/gz_ros2_control --volume=/home/kscottz/Code/tb4_toy/:/opt/ros/overlay_ws/src/tb4_toy tb4 bash
+
+# Running into errors installing a python package in the Docker container. Python and PIP are missing.
+ error specifically looks like this:
+```bash
+root@4c53ffc94ca1:/opt/ros/overlay_ws# colcon build --packages-select tb4_toy
+Starting >>> tb4_toy 
+--- stderr: tb4_toy                   
+/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+  warnings.warn(
+---
+Finished <<< tb4_toy [2.57s]
+
+Summary: 1 package finished [4.80s]
+```
+
+We need an older version of setup tools:
+`pip install setuptools==58.2.0`
+

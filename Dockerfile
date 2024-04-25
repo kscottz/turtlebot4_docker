@@ -25,8 +25,11 @@ RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pk
 # Install the matching ros_gz version, eg. `ros-humble-ros-gzharmonic`.
 # For Fortress, a suffix is not necessary, so it would just be `ros-humble-ros-gz`
 RUN apt-get update \
-    && apt-get install -y "ros-${ROS_DISTRO}-ros-gz${GZ_VERSION#fortress}" emacs htop less \
+    && apt-get install -y "ros-${ROS_DISTRO}-ros-gz${GZ_VERSION#fortress}" emacs htop byobu python3 pip less \
     && rm -rf /var/lib/apt/lists/*
+
+# For colcon to build python packages without errors we'll need
+RUN pip install setuptools==58.2.0
 
 # Build turtlebot4 and ros_gz from source
 WORKDIR $OVERLAY_WS/src
@@ -52,3 +55,5 @@ RUN sed --in-place --expression \
 ENTRYPOINT ["/ros_entrypoint.sh"]
 
 CMD ["/bin/bash"]
+
+
