@@ -25,7 +25,7 @@ RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pk
 # Install the matching ros_gz version, eg. `ros-humble-ros-gzharmonic`.
 # For Fortress, a suffix is not necessary, so it would just be `ros-humble-ros-gz`
 RUN apt-get update \
-    && apt-get install -y "ros-${ROS_DISTRO}-ros-gz${GZ_VERSION#fortress}" emacs htop byobu python3 pip less \
+    && apt-get install -y "ros-${ROS_DISTRO}-ros-gz${GZ_VERSION#fortress}" emacs htop byobu python3 pip less ros-${ROS_DISTRO}-teleop-twist-keyboard \
     && rm -rf /var/lib/apt/lists/*
 
 # For colcon to build python packages without errors we'll need
@@ -45,6 +45,7 @@ RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
 # build overlay source
 RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
     colcon build --symlink-install
+
 
 # source entrypoint setup
 ENV OVERLAY_WS $OVERLAY_WS

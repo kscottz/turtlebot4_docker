@@ -102,3 +102,6 @@ Summary: 1 package finished [4.80s]
 We need an older version of setup tools:
 `pip install setuptools==58.2.0`
 
+
+ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist "{linear: {x: -2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
+
