@@ -4,14 +4,14 @@
 
 This Docker container contains [ROS 2 Humble](https://docs.ros.org/en/humble/), [Gazebo Fortress](https://gazebosim.org/docs/harmonic/install_ubuntu), and the [TurtleBot 4 simulation](https://turtlebot.github.io/turtlebot4-user-manual/). The Docker container has been configured to work well on commodity hardware without a graphics card. Most reasonably configured hardware should be able to run the simulation with a real time factor of at least 0.2.
 
-This Docker container is meant to be used with this [example code for a toy TB4 node](https://github.com/kscottz/tb4_toy) and the associated [PyCon 2024 talk](https://docs.google.com/presentation/d/1OaOoQi-Ja5go319JDQfb3lyBg6Azz5cfrdgx6MOJ7wc/edit?usp=sharing).
+👉 This Docker container is meant to be used with this [example code for a toy TB4 node](https://github.com/kscottz/tb4_toy) and the associated [PyCon 2024 talk](https://docs.google.com/presentation/d/1OaOoQi-Ja5go319JDQfb3lyBg6Azz5cfrdgx6MOJ7wc/edit?usp=sharing).
 
 
 # NEED HELP?!
 
 * A full list of ROS resources including our Discord and Q&A website [can be found here](https://github.com/ros2/).
 * A full list of Gazebo resources [can be found here.](https://github.com/gazebosim)
-* The TurtleBot 4 manual [can be found here.]((https://turtlebot.github.io/turtlebot4-user-manual/)
+* The TurtleBot 4 manual [can be found here.](https://turtlebot.github.io/turtlebot4-user-manual/)
 
 
 # Using this Docker Image
