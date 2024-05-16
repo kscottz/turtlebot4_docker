@@ -80,9 +80,10 @@ https://github.com/rocker-org/website/edit/master/use/shared_volumes.md
 docker run --rm -ti --user root -v /home/kscottz/Code/gz_ros2_control/:/opt/ros/overlay_ws/src/gz_ros2_control -v /home/kscottz/Code/tb4_toy/:/opt/ros/overlay_ws/src/tb4_toy  tb4 bash
 
 
-THIS IS THE WORKING COMMAND
+# THIS IS THE COMMAND 
 rocker --x11 --devices=/dev/dri  --volume=/home/kscottz/Code/gz_ros2_control/:/opt/ros/overlay_ws/src/gz_ros2_control --volume=/home/kscottz/Code/shared_dir/:/opt/ros/overlay_ws/src/shared_dir  tb4 bash
 
+THIS IS THE WORKING COMMAND
 rocker --x11 --devices=/dev/dri  --volume=/home/kscottz/Code/gz_ros2_control/:/opt/ros/overlay_ws/src/gz_ros2_control --volume=/home/kscottz/Code/tb4_toy/:/opt/ros/overlay_ws/src/tb4_toy tb4 bash
 
 # Running into errors installing a python package in the Docker container. Python and PIP are missing.
@@ -103,5 +104,29 @@ We need an older version of setup tools:
 `pip install setuptools==58.2.0`
 
 
-ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist "{linear: {x: -2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
+ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 30.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
 
+
+Errors:
+onfigured and activated diffdrive_controller
+[INFO] [spawner-46]: process has finished cleanly [pid 23784]
+[turtlebot4_node-30] [INFO] [1714091558.299103918] [turtlebot4_node]: Undocking
+[turtlebot4_node-30] [INFO] [1714091558.299197100] [turtlebot4_node]: Waiting for undock action server
+[turtlebot4_node-30] [INFO] [1714091559.299860643] [turtlebot4_node]: undock action server available, sending goal
+[motion_control-35] [INFO] [1714091559.300244564] [motion_control]: Received new undock goal
+[turtlebot4_node-30] [INFO] [1714091559.301879738] [turtlebot4_node]: undock goal accepted by server, waiting for result
+[turtlebot4_node-30] [INFO] [1714091560.694811429] [turtlebot4_node]: OAKD started
+[turtlebot4_node-30] [INFO] [1714091560.694965087] [turtlebot4_node]: RPLIDAR started
+[turtlebot4_node-30] [ERROR] [1714091563.671720918] [turtlebot4_node]: Service oakd/stop_camera unavailable.
+[turtlebot4_node-30] [ERROR] [1714091563.682147231] [turtlebot4_node]: Service stop_motor unavailable.
+[turtlebot4_node-30] [ERROR] [1714091565.779272188] [turtlebot4_node]: undock goal was canceled
+[motion_control-35] [WARN] [1714091565.866936409] [motion_control]: Reached backup limit! Stop Driving robot backward or disable from safety_override parameter!
+
+
+# Building the Loopy Service
+
+ros2 pkg create --build-type ament_python --license Apache-2.0 loopy --dependencies rclpy example_interfaces
+
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+ros2 run tb4_toy toy_node
+ros2 service call /do_loopy std_srvs/Trigger '{}'
