@@ -57,7 +57,7 @@ pip install setuptools==58.2.0
 
 * Change `ros2_control` to the Humble branch `git checkout humble`
 
-* Start the container with the following command to link the directories
+* Start the container with the following command to link the directories you will need to update the first path to match the path you are using on your machine for the checked out directories.
 
 ```bash
 rocker --x11 --devices=/dev/dri  --volume=/home/kscottz/Code/gz_ros2_control/:/opt/ros/overlay_ws/src/gz_ros2_control --volume=/home/kscottz/Code/tb4_toy/:/opt/ros/overlay_ws/src/tb4_toy tb4 bash
