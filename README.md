@@ -26,7 +26,8 @@ But wait, there's more! Do you just want to try out some of the great tutorials 
 
 * Install Docker with `sudo apt install docker.io`
 * You may need to [add yourself to the Docker group](https://stackoverflow.com/questions/21871479/docker-cant-connect-to-docker-daemon) with the command `sudo usermod -aG docker $(whoami)` 
-* Install Rocker (see [instructions](https://github.com/osrf/rocker)). Make sure to setup and use a Python virtual environment. Note your virtual environments name and location
+* Install Rocker (see [instructions](https://github.com/osrf/rocker)). Make sure to setup and use a Python virtual environment.
+* Note your virtual environment's name and location. You'll need to call `source ./<venv>/bin/activate` before starting your container. 
 
 If you wish to build the Docker container from scratch:
 
@@ -36,19 +37,20 @@ If you wish to build the Docker container from scratch:
 
 If you wish to use the pre-built Docker image run:
 
-* `docker pull osrf/icra2023_ros2_gz_tutorial:roscon2024_tutorial_humble_Building the Container
+* `docker pull osrf/icra2023_ros2_gz_tutorial:roscon2024_tutorial_humble_turtlebot4`
+* [DockerHub link](https://hub.docker.com/layers/osrf/icra2023_ros2_gz_tutorial/roscon2024_tutorial_humble_turtlebot4/images/sha256-dfee39926c310841cfe49df099577f8e66b9ef1af9f72ebac8d7a14e7fb809e6?context=repo)
+* REMEMBER that *osrf:roscon2024_tutorial_humble_turtlebot4* is the name of your container
 
+# How to Start Your Container
 
-### How to Start the Container
-
-Let's start by talking about how to start your container. There is more than one way to skin a cat and there is more than one way to start this workshop. *Take a look below but do not start the container yet! You have a few more options to decide on!* 
+Let's start by talking about how to start your container. We've provided a couple of options to run through the workshop. *Take a look below but do not start the container yet! You have a few more options to decide on!* 
 
 * If you downloaded your Docker container you can start it using:
   * `rocker --x11 --devices=/dev/dri  osrf/icra2023_ros2_gz_tutorial:roscon2024_tutorial_humble_turtlebot4  bash`
 * If you built your Docker container you can start it using:
   * `rocker --x11 --devices=/dev/dri tb4 bash`
 
-*Note that all that changed here is the name of the container which is the second to last parameter!*
+*Note that all that changed here is the name of the container, which is the second to last parameter!*
 
 Now you must decided where you want to save your work. You have two options, start from scratch and build everything yourself, or follow along from a finished project. There is also a third option, where you just start the container but use Docker's internal tools to save your work. While this is certainly possible we don't recommend it.
 
@@ -62,9 +64,16 @@ Now you must decided where you want to save your work. You have two options, sta
   * Now run, `rocker --x11 --devices=/dev/dri --volume=<full path to your directory>:/opt/ros/overlay_ws/src/tb4_toy <container name> bash` where the directory has been replaced by your new directory, and container is the container you want to use. 
   * Here's an example from my system: `rocker --x11 --devices=/dev/dri --volume=/home/kscottz/Code/tb4_toy/:/opt/ros/overlay_ws/src/tb4_toy tb4 bash`	
 
-**Important Note** -- if your laptop has a fancy graphics card you can enable it by omitting the line: `--devices=/dev/dri.` 
 
 Note that this tutorial will require you to work inside the container at all times and should leave your host system untouched. *If you happen to change the Docker container's internal configuration and want to save it, you  will need to use `[docker commit](https://docs.docker.com/reference/cli/docker/container/commit/)` to save your work.
+
+### A Note on Graphics Cards
+
+If your laptop has a fancy graphics card you can enable it by omitting the line: `--devices=/dev/dri` when you start your container. If you have a discrete graphics card we recommend you use it! If you don't have a graphics card, don't worry! We've specifically configured this workshop to work on older laptops. 
+
+### A Note on Editors
+
+The container for this workshop contains most of the common terminal editors found on Linux systems. You are more than welcome to use them. If you mounted your filesystem into Docker you can also use any editor on your host systems to edit files. If you have never used a terminal editor before this may be the easier approach. 
 
 ### Want to use just Docker? 
 
