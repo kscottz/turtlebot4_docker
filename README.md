@@ -8,75 +8,78 @@ This Docker container contains [ROS 2 Humble](https://docs.ros.org/en/humble/), 
 
 👉 This Docker also includes a full ROS 2 Humble install. If you would like to brush up on your ROS skills you can work through the ROS 2 tutorials. We suggest you start with the [CLI Tutorials.](https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools.html)
 
-# Overview
 
-If you are following along after the talk or in a workshop you have two options:
+# Choose Your Own Adventure
 
-* Build the Dockerfile from scratch using the instructions below. This will allow you to build upon what you've learned alreay.
-* Pull the Docker image from Docker Hub by doing the following:
-  * TODO DockerHub Link
+This workshop let's you choose your own adventure. You have two big decisions to make:
 
-For the workshop you have two options for how to follow along:
+* Build the container yourself -or- pull down the container from DockerHub.
+  * In a classroom setting we recommend pulling the container down from DockerHub.
+  * If you are home we recommend you build the container yourself. It will allow you to build a ROS + Gazebo Docker container that fits your particular needs.
+* Write the code yourself from scratch -or- follow along from a finished repository.
+  * We recommend you write the code yourself! It will give you experience with the ROS APIs and development process. You can always peek at the finished project for some help.
+  * If you want to follow along from the finished project you can clone the [following repository](https://github.com/kscottz/tb4_toy) into your working directory.
 
-* Write the code from scratch and use the `tb4_toy` repository as a reference when you get stucl. 
-* Follow along from completed code, there are git tags for points along the way.
+But wait, there's more! Do you just want to try out some of the great tutorials on [docs.ros.org](https://docs.ros.org/en/humble/) we also have instructions on how to do that too!
 
-# Using this Docker Image
-
-## Installing and Running the Container
+# Setup Instructions
 
 * Install Docker with `sudo apt install docker.io`
 * You may need to [add yourself to the Docker group](https://stackoverflow.com/questions/21871479/docker-cant-connect-to-docker-daemon) with the command `sudo usermod -aG docker $(whoami)` 
-* Install Rocker (see [instructions](https://github.com/osrf/rocker))
-* Clone this repository
-* `docker build . -t tb4`
+* Install Rocker (see [instructions](https://github.com/osrf/rocker)). Make sure to setup and use a Python virtual environment. Note your virtual environments name and location
 
-### How to Start with an Empty Container
+If you wish to build the Docker container from scratch:
 
-Note that this approach will require you to work inside the container at all times. This approach will leave your host system untouched. *To save your progress you will need to use `[docker commit](https://docs.docker.com/reference/cli/docker/container/commit/)` to save your work.
+* Clone this repository `git clone git@github.com:kscottz/turtlebot4_docker.git`
+* Build the container using: `docker build . -t tb4`
+* *REMEMBER tb4* is the name of your image in this case
 
-```bash
-rocker --x11 tb4 bash
-```
+If you wish to use the pre-built Docker image run:
 
-If you are using an Intel integrated graphics card do this instead:
+* `docker pull osrf/icra2023_ros2_gz_tutorial:roscon2024_tutorial_humble_Building the Container
 
-```bash
-rocker --x11 --devices=/dev/dri tb4 bash
-```
 
-Inside the container, run
+### How to Start the Container
+
+Let's start by talking about how to start your container. There is more than one way to skin a cat and there is more than one way to start this workshop. *Take a look below but do not start the container yet! You have a few more options to decide on!* 
+
+* If you downloaded your Docker container you can start it using:
+  * `rocker --x11 --devices=/dev/dri  osrf/icra2023_ros2_gz_tutorial:roscon2024_tutorial_humble_turtlebot4  bash`
+* If you built your Docker container you can start it using:
+  * `rocker --x11 --devices=/dev/dri tb4 bash`
+
+*Note that all that changed here is the name of the container which is the second to last parameter!*
+
+Now you must decided where you want to save your work. You have two options, start from scratch and build everything yourself, or follow along from a finished project. There is also a third option, where you just start the container but use Docker's internal tools to save your work. While this is certainly possible we don't recommend it.
+
+* If you want to work from scratch, our preferred workflow, then all you do is create a directory:
+  * `mkdir tb4_toy`
+  * Now run, `rocker --x11 --devices=/dev/dri --volume=<full path to your directory>:/opt/ros/overlay_ws/src/tb4_toy <container name> bash` where the directory has been replaced by your new directory, and container is the container you want to use. 
+  * Here's an example from my system: `rocker --x11 --devices=/dev/dri --volume=/home/kscottz/Code/tb4_toy/:/opt/ros/overlay_ws/src/tb4_toy tb4 bash`	
+
+* If you want to work from a finished code example, please do the following
+  * `git clone git@github.com:kscottz/tb4_toy.git` -- [here's the code](https://github.com/kscottz/tb4_toy) if you just want to peek. 
+  * Now run, `rocker --x11 --devices=/dev/dri --volume=<full path to your directory>:/opt/ros/overlay_ws/src/tb4_toy <container name> bash` where the directory has been replaced by your new directory, and container is the container you want to use. 
+  * Here's an example from my system: `rocker --x11 --devices=/dev/dri --volume=/home/kscottz/Code/tb4_toy/:/opt/ros/overlay_ws/src/tb4_toy tb4 bash`	
+
+**Important Note** -- if your laptop has a fancy graphics card you can enable it by omitting the line: `--devices=/dev/dri.` 
+
+Note that this tutorial will require you to work inside the container at all times and should leave your host system untouched. *If you happen to change the Docker container's internal configuration and want to save it, you  will need to use `[docker commit](https://docs.docker.com/reference/cli/docker/container/commit/)` to save your work.
+
+### Want to use just Docker? 
+
+We have a comprehensive guide to using this container without Rocker [available here](https://github.com/osrf/icra2023_ros2_gz_tutorial/tree/roscon2024/docker). This guide includes a number of Bash scripts that make starting an appropriate Docker container easy! This guide also provides some alternative approaches to performing ROS development inside of a container. 
+
+
+# Running ROS and Gazebo
+
+Once you have started your container you can launch ROS and Gazebo by running the following commands:
 
 ```bash
 ros2 launch turtlebot4_ignition_bringup turtlebot4_ignition.launch.py world:=maze
 ```
 
-### How to Start with Example Code
-
-This approach will allow you to use your host operating system's tools and directories inside of the Docker container. If you would like to use your own empty Github repo you can replace the sample repo with one of your own. 
-
-* Install Docker, Rocker, and this Repo as noted above
-
-* In your local dev environment checkout out your dev repository and ros2_control. ros2_control is a temporary patch and should be fixed soon. An older version of setup tools may be needed 
-
-```bash
-git clone git@github.com:kscottz/tb4_toy.git
-git clone git@github.com:ros-controls/ros2_control.git
-pip install setuptools==58.2.0
-
-```
-
-* Change `ros2_control` to the Humble branch `git checkout humble`
-
-* Start the container with the following command to link the directories you will need to update the first path to match the path you are using on your machine for the checked out directories.
-
-```bash
-rocker --x11 --devices=/dev/dri  --volume=/home/kscottz/Code/gz_ros2_control/:/opt/ros/overlay_ws/src/gz_ros2_control --volume=/home/kscottz/Code/tb4_toy/:/opt/ros/overlay_ws/src/tb4_toy tb4 bash
-```
-Note that you need to replace the full path above with your full path. This is to say, replace `/home/kscottz/Code` with the full path to your Github repository.
-
-
-* Now we need to re-build ros2_control and tb4_toy
+### How to Start Gazebo and ROS
 
 ```bash
 source ./install/setup.bash
@@ -102,4 +105,4 @@ ros2 launch turtlebot4_ignition_bringup turtlebot4_ignition.launch.py world:=maz
 * A full list of ROS resources including our Discord and Q&A website [can be found here](https://github.com/ros2/).
 * A full list of Gazebo resources [can be found here.](https://github.com/gazebosim)
 * The TurtleBot 4 manual [can be found here.](https://turtlebot.github.io/turtlebot4-user-manual/)
-
+* [Docker cheat sheet](https://dockerlabs.collabnix.com/docker/cheatsheet/). 
