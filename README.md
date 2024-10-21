@@ -1,5 +1,8 @@
  ![The TurtleBot 4 Simulator in a Docker Container](/example.png)
 
+#👉👉👉[HERE ARE THE SLIDES](https://docs.google.com/presentation/d/1V1LQblvSvm84qXzOgCCoJoYtR35na5vPyZZ5lZmNRJs/edit?usp=sharing)
+
+
 # Turtlebot4 Docker
 
 This Docker container contains [ROS 2 Humble](https://docs.ros.org/en/humble/), [Gazebo Fortress](https://gazebosim.org/docs/harmonic/install_ubuntu), and the [TurtleBot 4 simulation](https://turtlebot.github.io/turtlebot4-user-manual/). The Docker container has been configured to work well on commodity hardware without a graphics card. Most reasonably configured hardware should be able to run the simulation with a real time factor of at least 0.2.
