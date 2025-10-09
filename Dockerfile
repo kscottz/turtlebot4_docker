@@ -33,9 +33,9 @@ RUN pip install setuptools==58.2.0
 
 # Build turtlebot4 and ros_gz from source
 WORKDIR $OVERLAY_WS/src
-RUN git clone https://github.com/turtlebot/turtlebot4_simulator -b ${ROS_DISTRO}
+# RUN git clone https://github.com/turtlebot/turtlebot4_simulator -b ${ROS_DISTRO}
 
-WORKDIR $OVERLAY_WS
+# WORKDIR $OVERLAY_WS
 RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
     apt-get update && rosdep install -y \
       --from-paths src \
