@@ -33,19 +33,24 @@ RUN apt-get update \
 # RUN sudo apt install python3-setuptools
 # RUN pip3 install setuptools==58.2.0   --break-system-packages
 ARG PIP_BREAK_SYSTEM_PACKAGES=TRUE
-RUN pip3 install setuptools==58.2.0
+RUN sudo apt install python3-setuptools
+# RUN pip3 install setuptools==58.2.0
 
 # Build turtlebot4 and ros_gz from source
 WORKDIR $OVERLAY_WS/src
 RUN git clone https://github.com/turtlebot/turtlebot4_simulator -b ${ROS_DISTRO}
 
-# WORKDIR $OVERLAY_WS
+WORKDIR $OVERLAY_WS
 # Fails at ROSDep install
-RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
-    apt-get update && rosdep install -y \
-      --from-paths src \
-      --ignore-src \
-    && rm -rf /var/lib/apt/lists/*
+# RUN .  /opt/ros/$ROS_DISTRO/setup.sh && \
+#     apt-get update && rosdep install -y \
+#       --from-paths src \
+#       --ignore-src \
+#     && 
+RUN apt-get update
+RUN . /opt/ros/jazzy/setup.sh && \
+    rosdep install -y --from-paths src --ignore-src 
+RUN rm -rf /var/lib/apt/lists/*
 
 # build overlay source
 RUN . /opt/ros/$ROS_DISTRO/setup.sh && \

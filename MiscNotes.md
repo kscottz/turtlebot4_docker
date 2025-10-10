@@ -141,3 +141,12 @@ sudo apt-key del "C1CF 6E31 E6BA DE88 68B1  72B4 F42E D6FB AB17 C654" # This is 
 # If using ROS 2
 sudo rm /etc/apt/sources.list.d/ros2.list 
 sudo rm /usr/share/keyrings/ros-archive-keyring.gpg
+
+
+Upgrade to buildx
+sudo apt install docker-buildx
+
+DOCKER_BUILDKIT=1 docker build .
+
+
+
