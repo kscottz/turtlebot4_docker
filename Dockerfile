@@ -1,12 +1,12 @@
 # Choose from humble and iron
-ARG FROM_IMAGE=ros:humble
+ARG FROM_IMAGE=ros:jazzy
 
 FROM $FROM_IMAGE
 
 ARG OVERLAY_WS=/opt/ros/overlay_ws
 
 # Choose from fortress, garden, and harmonic.
-ARG GZ_VERSION=fortress
+ARG GZ_VERSION=harmonic
 
 
 RUN apt-get update \
@@ -25,17 +25,22 @@ RUN wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pk
 # Install the matching ros_gz version, eg. `ros-humble-ros-gzharmonic`.
 # For Fortress, a suffix is not necessary, so it would just be `ros-humble-ros-gz`
 RUN apt-get update \
-    && apt-get install -y "ros-${ROS_DISTRO}-ros-gz${GZ_VERSION#fortress}" emacs htop byobu python3 pip less ros-${ROS_DISTRO}-teleop-twist-keyboard ros-${ROS_DISTRO}-desktop \
+    && apt-get install -y "ros-${ROS_DISTRO}-ros-gz" emacs htop byobu python3 pip less ros-${ROS_DISTRO}-teleop-twist-keyboard ros-${ROS_DISTRO}-desktop \
     && rm -rf /var/lib/apt/lists/*
 
 # For colcon to build python packages without errors we'll need
-RUN pip install setuptools==58.2.0
+# https://discourse.openrobotics.org/t/rosdep-for-pip-is-broken-on-jazzy/38981/9
+# RUN sudo apt install python3-setuptools
+# RUN pip3 install setuptools==58.2.0   --break-system-packages
+ARG PIP_BREAK_SYSTEM_PACKAGES=TRUE
+RUN pip3 install setuptools==58.2.0
 
 # Build turtlebot4 and ros_gz from source
 WORKDIR $OVERLAY_WS/src
-# RUN git clone https://github.com/turtlebot/turtlebot4_simulator -b ${ROS_DISTRO}
+RUN git clone https://github.com/turtlebot/turtlebot4_simulator -b ${ROS_DISTRO}
 
 # WORKDIR $OVERLAY_WS
+# Fails at ROSDep install
 RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
     apt-get update && rosdep install -y \
       --from-paths src \
