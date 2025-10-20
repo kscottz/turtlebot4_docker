@@ -16,8 +16,8 @@ This Docker container contains [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/), [G
 
 This workshop let's you choose your own adventure. You have two big decisions to make:
 
-* Build the container yourself -or- pull down the container from DockerHub.
-  * In a classroom setting we recommend pulling the container down from DockerHub.
+* Build the container yourself -or- pull down the container from Github.
+  * In a classroom setting we recommend pulling the container down from Github.
   * If you are at home we recommend you build the container yourself. It will allow you to build a ROS + Gazebo Docker container that fits your particular needs.
 * Write the code yourself from scratch -or- follow along from a finished repository.
   * We recommend you write the code yourself! It will give you experience with the ROS APIs and development process. You can always peek at the finished project for some help.
@@ -40,16 +40,16 @@ If you wish to build the Docker container from scratch:
 
 If you wish to use the pre-built Docker image run:
 
-* `docker pull osrf/icra2023_ros2_gz_tutorial:roscon2024_tutorial_humble_turtlebot4`
-* [DockerHub link](https://hub.docker.com/layers/osrf/icra2023_ros2_gz_tutorial/roscon2024_tutorial_humble_turtlebot4/images/sha256-dfee39926c310841cfe49df099577f8e66b9ef1af9f72ebac8d7a14e7fb809e6?context=repo)
-* REMEMBER that *osrf:roscon2024_tutorial_humble_turtlebot4* is the name of your container
+* `docker pull ghcr.io/kscottz/roscon2025-intro-workshop:jazzy`
+* [Container on Github](https://github.com/kscottz/turtlebot4_docker/pkgs/container/roscon2025-intro-workshop)
+* REMEMBER that *ghcr.io/kscottz/roscon2025-intro-workshop:jazzy* is the name of your container. The slides will say `tb4`, but you will need to use this name.
 
 # How to Start Your Container
 
 Let's start by talking about how to start your container. We've provided a couple of options to run through the workshop. *Take a look below but do not start the container yet! You have a few more options to decide on!* 
 
 * If you downloaded your Docker container you can start it using:
-  * `rocker --x11 --devices=/dev/dri  osrf/icra2023_ros2_gz_tutorial:roscon2024_tutorial_humble_turtlebot4  bash`
+  * `rocker --x11 --devices=/dev/dri ghcr.io/kscottz/roscon2025-intro-workshop:jazzy  bash`
 * If you built your Docker container you can start it using:
   * `rocker --x11 --devices=/dev/dri tb4 bash`
 
@@ -85,31 +85,26 @@ We have a comprehensive guide to using this container without Rocker [available 
 
 # Running ROS and Gazebo
 
-Once you have started your container you can launch ROS and Gazebo by running the following commands:
-
-```bash
-ros2 launch turtlebot4_ignition_bringup turtlebot4_ignition.launch.py world:=maze
-```
-
-### How to Start Gazebo and ROS
+Once you have started your container you can launch ROS and Gazebo by first building the workspace and running the following commands.
 
 ```bash
 source ./install/setup.bash
 colcon build
 ```
 
-* Now start the Maze simulator
+Now you can start the Turtlebot4 simulation. 
 
 ```bash
-ros2 launch turtlebot4_ignition_bringup turtlebot4_ignition.launch.py world:=maze
+ros2 launch turtlebot4_gz_bringup turtlebot4_gz.launch.py world:=maze
 ```
 
 ## Other useful commands:
 
-* Send a velocity command: `ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 30.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"`
-* Control the robot via keyboard: `ros2 run teleop_twist_keyboard teleop_twist_keyboard`
+* Send a velocity command: `ros2 topic pub /cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 2.0, z: 2.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}' -r 5`
+* Control the robot via keyboard: `ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=cmd_vel_unstamped`
 * Run the toy node: `ros2 run tb4_toy toy_node`
 * Trigger the toy node service: `ros2 service call /do_loopy std_srvs/Trigger '{}'`
+
 
 
 # NEED HELP?!
