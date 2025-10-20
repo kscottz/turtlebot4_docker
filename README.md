@@ -68,7 +68,7 @@ Now you must decided where you want to save your work. You have two options, sta
   * Here's an example from my system: `rocker --x11 --devices=/dev/dri --volume=/home/kscottz/Code/tb4_toy/:/opt/ros/overlay_ws/src/tb4_toy tb4 bash`	
 
 
-Note that this tutorial will require you to work inside the container at all times and should leave your host system untouched. *If you happen to change the Docker container's internal configuration and want to save it, you  will need to use `[docker commit](https://docs.docker.com/reference/cli/docker/container/commit/)` to save your work.
+Note that this tutorial will require you to work inside the container at all times and should leave your host system untouched. *If you happen to change the Docker container's internal configuration and want to save it, you  will need to use [docker commit](https://docs.docker.com/reference/cli/docker/container/commit/) to save your work.
 
 ### A Note on Graphics Cards
 
