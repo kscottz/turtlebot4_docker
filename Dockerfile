@@ -30,23 +30,14 @@ RUN apt-get update \
 
 # For colcon to build python packages without errors we'll need
 # https://discourse.openrobotics.org/t/rosdep-for-pip-is-broken-on-jazzy/38981/9
-# RUN sudo apt install python3-setuptools
-# RUN pip3 install setuptools==58.2.0   --break-system-packages
 ARG PIP_BREAK_SYSTEM_PACKAGES=TRUE
 RUN sudo apt install python3-setuptools
-# RUN pip3 install setuptools==58.2.0
 
 # Build turtlebot4 and ros_gz from source
 WORKDIR $OVERLAY_WS/src
 RUN git clone https://github.com/turtlebot/turtlebot4_simulator -b ${ROS_DISTRO}
 
 WORKDIR $OVERLAY_WS
-# Fails at ROSDep install
-# RUN .  /opt/ros/$ROS_DISTRO/setup.sh && \
-#     apt-get update && rosdep install -y \
-#       --from-paths src \
-#       --ignore-src \
-#     && 
 RUN apt-get update
 RUN . /opt/ros/jazzy/setup.sh && \
     rosdep install -y --from-paths src --ignore-src 
@@ -58,7 +49,7 @@ RUN . /opt/ros/$ROS_DISTRO/setup.sh && \
 
 
 # source entrypoint setup
-ENV OVERLAY_WS $OVERLAY_WS
+ENV OVERLAY_WS=$OVERLAY_WS
 RUN sed --in-place --expression \
       '$isource "$OVERLAY_WS/install/setup.bash"' \
       /ros_entrypoint.sh
