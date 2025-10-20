@@ -1,15 +1,15 @@
  ![The TurtleBot 4 Simulator in a Docker Container](/example.png)
 
-# 👉👉👉[HERE ARE THE SLIDES](https://docs.google.com/presentation/d/1V1LQblvSvm84qXzOgCCoJoYtR35na5vPyZZ5lZmNRJs/edit?usp=sharing)
+# 👉👉👉[HERE ARE THE SLIDES](https://docs.google.com/presentation/d/1pMlogpbT0dHpvnoLzJgjlI6LeAo7bHHDb8AAiMo4-3g/edit?usp=sharing)
 
 
 # Turtlebot4 Docker
 
-This Docker container contains [ROS 2 Humble](https://docs.ros.org/en/humble/), [Gazebo Fortress](https://gazebosim.org/docs/harmonic/install_ubuntu), and the [TurtleBot 4 simulation](https://turtlebot.github.io/turtlebot4-user-manual/). The Docker container has been configured to work well on commodity hardware without a graphics card. Most reasonably configured hardware should be able to run the simulation with a real time factor of at least 0.2.
+This Docker container contains [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/), [Gazebo harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu), and the [TurtleBot 4 simulation](https://turtlebot.github.io/turtlebot4-user-manual/). The Docker container has been configured to work well on commodity hardware without a graphics card. Most reasonably configured hardware should be able to run the simulation with a real time factor of at least 0.2.
 
-👉 This Docker container is meant to be used with this [example code for a toy TB4 node](https://github.com/kscottz/tb4_toy) and the associated [PyCon 2024 talk](https://docs.google.com/presentation/d/1OaOoQi-Ja5go319JDQfb3lyBg6Azz5cfrdgx6MOJ7wc/edit?usp=sharing) or [ROSCon 2024 Workshop](https://docs.google.com/presentation/d/1V1LQblvSvm84qXzOgCCoJoYtR35na5vPyZZ5lZmNRJs/edit?usp=sharing)
+👉 This Docker container is meant to be used with this [example code for a toy TB4 node](https://github.com/kscottz/tb4_toy).and the associated [ROSCon 2025 Workshop](https://docs.google.com/presentation/d/1pMlogpbT0dHpvnoLzJgjlI6LeAo7bHHDb8AAiMo4-3g/edit?usp=sharing)
 
-👉 This Docker also includes a full ROS 2 Humble install. If you would like to brush up on your ROS skills you can work through the ROS 2 tutorials. We suggest you start with the [CLI Tutorials.](https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools.html)
+👉 This Docker also includes a full ROS 2 Jazzy install. If you would like to brush up on your ROS skills you can work through the ROS 2 tutorials. We suggest you start with the [CLI Tutorials.](https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools.html)
 
 
 # Choose Your Own Adventure
@@ -18,12 +18,12 @@ This workshop let's you choose your own adventure. You have two big decisions to
 
 * Build the container yourself -or- pull down the container from DockerHub.
   * In a classroom setting we recommend pulling the container down from DockerHub.
-  * If you are home we recommend you build the container yourself. It will allow you to build a ROS + Gazebo Docker container that fits your particular needs.
+  * If you are at home we recommend you build the container yourself. It will allow you to build a ROS + Gazebo Docker container that fits your particular needs.
 * Write the code yourself from scratch -or- follow along from a finished repository.
   * We recommend you write the code yourself! It will give you experience with the ROS APIs and development process. You can always peek at the finished project for some help.
   * If you want to follow along from the finished project you can clone the [following repository](https://github.com/kscottz/tb4_toy) into your working directory.
 
-But wait, there's more! Do you just want to try out some of the great tutorials on [docs.ros.org](https://docs.ros.org/en/humble/) we also have instructions on how to do that too!
+But wait, there's more! Do you just want to try out some of the great tutorials on [docs.ros.org](https://docs.ros.org/en/jazzy/) we also have instructions on how to do that too!
 
 # Setup Instructions
 
