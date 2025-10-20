@@ -1,6 +1,6 @@
  ![The TurtleBot 4 Simulator in a Docker Container](/example.png)
 
-# 👉👉👉[HERE ARE THE SLIDES](https://docs.google.com/presentation/d/1pMlogpbT0dHpvnoLzJgjlI6LeAo7bHHDb8AAiMo4-3g/edit?usp=sharing)
+# 👉👉👉[The workshop slides are available here](https://docs.google.com/presentation/d/1pMlogpbT0dHpvnoLzJgjlI6LeAo7bHHDb8AAiMo4-3g/edit?usp=sharing)
 
 
 # Turtlebot4 Docker
@@ -9,7 +9,7 @@ This Docker container contains [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/), [G
 
 👉 This Docker container is meant to be used with this [example code for a toy TB4 node](https://github.com/kscottz/tb4_toy).and the associated [ROSCon 2025 Workshop](https://docs.google.com/presentation/d/1pMlogpbT0dHpvnoLzJgjlI6LeAo7bHHDb8AAiMo4-3g/edit?usp=sharing)
 
-👉 This Docker also includes a full ROS 2 Jazzy install. If you would like to brush up on your ROS skills you can work through the ROS 2 tutorials. We suggest you start with the [CLI Tutorials.](https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools.html)
+👉 This Docker container also includes a full ROS 2 Jazzy install. If you would like to brush up on your ROS skills you can work through the ROS 2 tutorials. We suggest you start with the [CLI Tutorials.](https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools.html)
 
 
 # Choose Your Own Adventure
