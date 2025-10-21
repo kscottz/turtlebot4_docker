@@ -32,17 +32,23 @@ But wait, there's more! Do you just want to try out some of the great tutorials 
 * Install Rocker (see [instructions](https://github.com/osrf/rocker)). Make sure to setup and use a Python virtual environment.
 * Note your virtual environment's name and location. You'll need to call `source ./<venv>/bin/activate` before starting your container. 
 
-If you wish to build the Docker container from scratch:
+## Using a Pre-Built Docker Container
+
+If you would like to use the pre-build image run the following commands :
+
+* `docker pull ghcr.io/kscottz/roscon2025-intro-workshop:jazzy`
+* [Container on Github](https://github.com/kscottz/turtlebot4_docker/pkgs/container/roscon2025-intro-workshop)
+* REMEMBER that *ghcr.io/kscottz/roscon2025-intro-workshop:jazzy* is the name of your container. The slides will say `tb4`, but you will need to use this name.
+
+
+## Build the Docker Container from Scratch
+
+If you would like to build the Docker container from scratch you will need to use the following steps.
 
 * Clone this repository `git clone git@github.com:kscottz/turtlebot4_docker.git`
 * Build the container using: `docker build . -t tb4`
 * *REMEMBER tb4* is the name of your image in this case
 
-If you wish to use the pre-built Docker image run:
-
-* `docker pull ghcr.io/kscottz/roscon2025-intro-workshop:jazzy`
-* [Container on Github](https://github.com/kscottz/turtlebot4_docker/pkgs/container/roscon2025-intro-workshop)
-* REMEMBER that *ghcr.io/kscottz/roscon2025-intro-workshop:jazzy* is the name of your container. The slides will say `tb4`, but you will need to use this name.
 
 # How to Start Your Container
 
@@ -55,7 +61,7 @@ Let's start by talking about how to start your container. We've provided a coupl
 
 *Note that all that changed here is the name of the container, which is the second to last parameter!*
 
-Now you must decided where you want to save your work. You have two options, start from scratch and build everything yourself, or follow along from a finished project. There is also a third option, where you just start the container but use Docker's internal tools to save your work. While this is certainly possible we don't recommend it.
+Now you must decided where you want to save your work. You have two options, start from scratch and build everything yourself, or follow along from a finished project. There is also a third option, where you just start the container but use Docker's internal tools to save your work. 
 
 * If you want to work from scratch, our preferred workflow, then all you do is create a directory:
   * `mkdir tb4_toy`
