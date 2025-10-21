@@ -1,9 +1,11 @@
- ![The TurtleBot 4 Simulator in a Docker Container](/example.png)
+# ROSCon 2025 Intro to ROS Workshop
+
+![The TurtleBot 4 Simulator in a Docker Container](/example.png)
 
 # 👉👉👉[The workshop slides are available here](https://docs.google.com/presentation/d/1pMlogpbT0dHpvnoLzJgjlI6LeAo7bHHDb8AAiMo4-3g/edit?usp=sharing)
 
 
-# Turtlebot4 Docker
+## Turtlebot4 Docker
 
 This Docker container contains [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/), [Gazebo harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu), and the [TurtleBot 4 simulation](https://turtlebot.github.io/turtlebot4-user-manual/). The Docker container has been configured to work well on commodity hardware without a graphics card. Most reasonably configured hardware should be able to run the simulation with a real time factor of at least 0.2.
 
@@ -12,7 +14,7 @@ This Docker container contains [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/), [G
 👉 This Docker container also includes a full ROS 2 Jazzy install. If you would like to brush up on your ROS skills you can work through the ROS 2 tutorials. We suggest you start with the [CLI Tutorials.](https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools.html)
 
 
-# Choose Your Own Adventure
+## Choose Your Own Adventure
 
 This workshop let's you choose your own adventure. You have two big decisions to make:
 
@@ -32,7 +34,7 @@ But wait, there's more! Do you just want to try out some of the great tutorials 
 * Install Rocker (see [instructions](https://github.com/osrf/rocker)). Make sure to setup and use a Python virtual environment.
 * Note your virtual environment's name and location. You'll need to call `source ./<venv>/bin/activate` before starting your container. 
 
-## Using a Pre-Built Docker Container
+### Using a Pre-Built Docker Container
 
 If you would like to use the pre-build image run the following commands :
 
@@ -41,7 +43,7 @@ If you would like to use the pre-build image run the following commands :
 * REMEMBER that *ghcr.io/kscottz/roscon2025-intro-workshop:jazzy* is the name of your container. The slides will say `tb4`, but you will need to use this name.
 
 
-## Build the Docker Container from Scratch
+### Build the Docker Container from Scratch
 
 If you would like to build the Docker container from scratch you will need to use the following steps.
 
@@ -50,9 +52,7 @@ If you would like to build the Docker container from scratch you will need to us
 * *REMEMBER tb4* is the name of your image in this case
 
 
-# How to Start Your Container
-
-Let's start by talking about how to start your container. We've provided a couple of options to run through the workshop. *Take a look below but do not start the container yet! You have a few more options to decide on!* 
+## How to Start Your Container
 
 * If you downloaded your Docker container you can start it using:
   * `rocker --x11 --devices=/dev/dri ghcr.io/kscottz/roscon2025-intro-workshop:jazzy  bash`
@@ -61,7 +61,7 @@ Let's start by talking about how to start your container. We've provided a coupl
 
 *Note that all that changed here is the name of the container, which is the second to last parameter!*
 
-Now you must decided where you want to save your work. You have two options, start from scratch and build everything yourself, or follow along from a finished project. There is also a third option, where you just start the container but use Docker's internal tools to save your work. 
+Now you must decided where and how  you want to save your work. You have two options, start from scratch and build everything yourself, or follow along from a finished project. There is also a third option, where you just start the container but use Docker's internal tools to save your work. 
 
 * If you want to work from scratch, our preferred workflow, then all you do is create a directory:
   * `mkdir tb4_toy`
@@ -74,7 +74,7 @@ Now you must decided where you want to save your work. You have two options, sta
   * Here's an example from my system: `rocker --x11 --devices=/dev/dri --volume=/home/kscottz/Code/tb4_toy/:/opt/ros/overlay_ws/src/tb4_toy tb4 bash`	
 
 
-Note that this tutorial will require you to work inside the container at all times and should leave your host system untouched. *If you happen to change the Docker container's internal configuration and want to save it, you  will need to use [docker commit](https://docs.docker.com/reference/cli/docker/container/commit/) to save your work.
+Note that the workshop will require you to work inside the container at all times and should leave your host system untouched. *If you happen to change the Docker container's internal configuration and want to save it, you  will need to use [docker commit](https://docs.docker.com/reference/cli/docker/container/commit/) to save your work.
 
 ### A Note on Graphics Cards
 
@@ -89,7 +89,7 @@ The container for this workshop contains most of the common terminal editors fou
 We have a comprehensive guide to using this container without Rocker [available here](https://github.com/osrf/icra2023_ros2_gz_tutorial/tree/roscon2024/docker). This guide includes a number of Bash scripts that make starting an appropriate Docker container easy! This guide also provides some alternative approaches to performing ROS development inside of a container. 
 
 
-# Running ROS and Gazebo
+## Running ROS and Gazebo
 
 Once you have started your container you can launch ROS and Gazebo by first building the workspace and running the following commands.
 
@@ -104,16 +104,14 @@ Now you can start the Turtlebot4 simulation.
 ros2 launch turtlebot4_gz_bringup turtlebot4_gz.launch.py world:=maze
 ```
 
-## Other useful commands:
+### Other useful commands:
 
 * Send a velocity command: `ros2 topic pub /cmd_vel_unstamped geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 2.0, z: 2.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}' -r 5`
 * Control the robot via keyboard: `ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap cmd_vel:=cmd_vel_unstamped`
 * Run the toy node: `ros2 run tb4_toy toy_node`
 * Trigger the toy node service: `ros2 service call /do_loopy std_srvs/Trigger '{}'`
 
-
-
-# NEED HELP?!
+## NEED HELP?!
 
 * A full list of ROS resources including our Discord and Q&A website [can be found here](https://github.com/ros2/).
 * A full list of Gazebo resources [can be found here.](https://github.com/gazebosim)
