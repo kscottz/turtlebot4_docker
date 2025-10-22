@@ -36,12 +36,18 @@ But wait, there's more! Do you just want to try out some of the great tutorials 
 
 ### Using a Pre-Built Docker Container
 
-If you would like to use the pre-build image run the following commands :
+If you would like to use the pre-built image, then download the [pre-built image from Github](https://github.com/kscottz/turtlebot4_docker/pkgs/container/roscon2025-intro-workshop):
 
-* `docker pull ghcr.io/kscottz/roscon2025-intro-workshop:jazzy`
-* [Container on Github](https://github.com/kscottz/turtlebot4_docker/pkgs/container/roscon2025-intro-workshop)
-* REMEMBER that *ghcr.io/kscottz/roscon2025-intro-workshop:jazzy* is the name of your container. The slides will say `tb4`, but you will need to use this name.
+```
+docker pull ghcr.io/kscottz/roscon2025-intro-workshop:jazzy
+```
 
+The slides expect a docker image named `tb4`.
+Tag the pre-built image as `tb4` so that you can use the instructions in the slides:
+
+```
+docker tag ghcr.io/kscottz/roscon2025-intro-workshop:jazzy tb4
+```
 
 ### Build the Docker Container from Scratch
 
@@ -49,17 +55,15 @@ If you would like to build the Docker container from scratch you will need to us
 
 * Clone this repository `git clone git@github.com:kscottz/turtlebot4_docker.git`
 * Build the container using: `docker build . -t tb4`
-* *REMEMBER tb4* is the name of your image in this case
 
 
 ## How to Start Your Container
 
-* If you downloaded your Docker container you can start it using:
-  * `rocker --x11 --devices=/dev/dri ghcr.io/kscottz/roscon2025-intro-workshop:jazzy  bash`
-* If you built your Docker container you can start it using:
-  * `rocker --x11 --devices=/dev/dri tb4 bash`
+Start your container using `rocker`:
 
-*Note that all that changed here is the name of the container, which is the second to last parameter!*
+```
+rocker --x11 --devices=/dev/dri tb4 bash
+```
 
 Now you must decided where and how  you want to save your work. You have two options, start from scratch and build everything yourself, or follow along from a finished project. There is also a third option, where you just start the container but use Docker's internal tools to save your work. 
 
