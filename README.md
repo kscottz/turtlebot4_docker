@@ -29,19 +29,19 @@ But wait, there's more! Do you just want to try out some of the great tutorials 
 
 # ✅ Install Dependencies
 
-* Install Docker with `sudo apt install docker.io`
-* You may need to [add yourself to the Docker group](https://stackoverflow.com/questions/21871479/docker-cant-connect-to-docker-daemon) with the command `sudo usermod -aG docker $(whoami)` 
-* Install Rocker (see [instructions](https://github.com/osrf/rocker)). Make sure to setup and use a Python virtual environment.
-* Note your virtual environment's name and location. You'll need to call `source ./<venv>/bin/activate` before starting your container. 
+* ✅ Install Docker with `sudo apt install docker.io`
+* ✅ You may need to [add yourself to the Docker group](https://stackoverflow.com/questions/21871479/docker-cant-connect-to-docker-daemon) with the command `sudo usermod -aG docker $(whoami)` 
+* ✅ Install Rocker (see [instructions](https://github.com/osrf/rocker)). Make sure to setup and use a Python virtual environment.
+* ✅ Note your virtual environment's name and location. You'll need to call `source ./<venv>/bin/activate` before starting your container. 
 
 ### ✅ Installing the Pre-Built Docker Container (preferred approach)
 
 If you would like to use the pre-build image run the following commands :
 
-* `docker pull ghcr.io/kscottz/roscon2025-intro-workshop:jazzy`
+* ✅ `docker pull ghcr.io/kscottz/roscon2025-intro-workshop:jazzy`
 * [Container on Github](https://github.com/kscottz/turtlebot4_docker/pkgs/container/roscon2025-intro-workshop)
 * Now change the name of your Docker image using the tag command
-  * `docker image tag ghcr.io/kscottz/roscon2025-intro-workshop:jazzy tb4`
+  * ✅ `docker image tag ghcr.io/kscottz/roscon2025-intro-workshop:jazzy tb4`
 
 
 ### Build the Docker Container from Scratch
@@ -55,9 +55,9 @@ If you would like to build the Docker container from scratch you will need to us
 
 ## ✅ How to Start Your Container
 
-✅ You can start your Docker container with the following command:
+You can start your Docker container with the following command:
 
-`rocker --x11 --devices=/dev/dri tb4 bash`
+✅ `rocker --x11 --devices=/dev/dri tb4 bash`
 
 Now you must decided where and how  you want to save your work. You have two options, start from scratch and build everything yourself, or follow along from a finished project. There is also a third option, where you just start the container but use Docker's internal tools to save your work. 
 
