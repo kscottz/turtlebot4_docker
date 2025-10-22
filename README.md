@@ -40,7 +40,8 @@ If you would like to use the pre-build image run the following commands :
 
 * `docker pull ghcr.io/kscottz/roscon2025-intro-workshop:jazzy`
 * [Container on Github](https://github.com/kscottz/turtlebot4_docker/pkgs/container/roscon2025-intro-workshop)
-* REMEMBER that *ghcr.io/kscottz/roscon2025-intro-workshop:jazzy* is the name of your container. The slides will say `tb4`, but you will need to use this name.
+* Now change the name of your Docker image using the tag command
+  * `docker image tag ghcr.io/kscottz/roscon2025-intro-workshop:jazzy tb4`
 
 
 ### Build the Docker Container from Scratch
@@ -54,23 +55,20 @@ If you would like to build the Docker container from scratch you will need to us
 
 ## ✅ How to Start Your Container
 
-* ✅ If you downloaded your Docker container you can start it using:
-  * `rocker --x11 --devices=/dev/dri ghcr.io/kscottz/roscon2025-intro-workshop:jazzy  bash`
-* If you built your Docker container you can start it using:
-  * `rocker --x11 --devices=/dev/dri tb4 bash`
+✅ You can start your Docker container with the following command:
 
-*Note that all that changed here is the name of the container, which is the second to last parameter!*
+`rocker --x11 --devices=/dev/dri tb4 bash`
 
 Now you must decided where and how  you want to save your work. You have two options, start from scratch and build everything yourself, or follow along from a finished project. There is also a third option, where you just start the container but use Docker's internal tools to save your work. 
 
 * If you want to work from scratch, our preferred workflow, then all you do is create a directory:
   * `mkdir tb4_toy`
-  * Now run, `rocker --x11 --devices=/dev/dri --volume=<full path to your directory>:/opt/ros/overlay_ws/src/tb4_toy <container name> bash` where the directory has been replaced by your new directory, and container is the container you want to use. 
+  * Now run, `rocker --x11 --devices=/dev/dri --volume=<full path to your directory>:/opt/ros/overlay_ws/src/tb4_toy tb4 bash` where the directory has been replaced by your new directory, and container is the container you want to use. 
   * Here's an example from my system: `rocker --x11 --devices=/dev/dri --volume=/home/kscottz/Code/tb4_toy/:/opt/ros/overlay_ws/src/tb4_toy tb4 bash`	
 
 * If you want to work from a finished code example, please do the following
   * `git clone git@github.com:kscottz/tb4_toy.git` -- [here's the code](https://github.com/kscottz/tb4_toy) if you just want to peek. 
-  * Now run, `rocker --x11 --devices=/dev/dri --volume=<full path to your directory>:/opt/ros/overlay_ws/src/tb4_toy <container name> bash` where the directory has been replaced by your new directory, and container is the container you want to use. 
+  * Now run, `rocker --x11 --devices=/dev/dri --volume=<full path to your directory>:/opt/ros/overlay_ws/src/tb4_toy tb4 bash` where the directory has been replaced by your new directory, and container is the container you want to use. 
   * Here's an example from my system: `rocker --x11 --devices=/dev/dri --volume=/home/kscottz/Code/tb4_toy/:/opt/ros/overlay_ws/src/tb4_toy tb4 bash`	
 
 
