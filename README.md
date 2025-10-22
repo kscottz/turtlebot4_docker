@@ -27,14 +27,14 @@ This workshop let's you choose your own adventure. You have two big decisions to
 
 But wait, there's more! Do you just want to try out some of the great tutorials on [docs.ros.org](https://docs.ros.org/en/jazzy/) we also have instructions on how to do that too!
 
-# Setup Instructions
+# ✅ Install Dependencies
 
 * Install Docker with `sudo apt install docker.io`
 * You may need to [add yourself to the Docker group](https://stackoverflow.com/questions/21871479/docker-cant-connect-to-docker-daemon) with the command `sudo usermod -aG docker $(whoami)` 
 * Install Rocker (see [instructions](https://github.com/osrf/rocker)). Make sure to setup and use a Python virtual environment.
 * Note your virtual environment's name and location. You'll need to call `source ./<venv>/bin/activate` before starting your container. 
 
-### Using a Pre-Built Docker Container
+### ✅ Installing the Pre-Built Docker Container (preferred approach)
 
 If you would like to use the pre-build image run the following commands :
 
@@ -52,9 +52,9 @@ If you would like to build the Docker container from scratch you will need to us
 * *REMEMBER tb4* is the name of your image in this case
 
 
-## How to Start Your Container
+## ✅ How to Start Your Container
 
-* If you downloaded your Docker container you can start it using:
+* ✅ If you downloaded your Docker container you can start it using:
   * `rocker --x11 --devices=/dev/dri ghcr.io/kscottz/roscon2025-intro-workshop:jazzy  bash`
 * If you built your Docker container you can start it using:
   * `rocker --x11 --devices=/dev/dri tb4 bash`
