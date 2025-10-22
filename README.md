@@ -55,30 +55,32 @@ If you would like to build the Docker container from scratch you will need to us
 
 ## ✅ How to Start Your Container
 
-You can start your Docker container with the following command:
+If you simply want to start the Docker container use the following command:
 
 ✅ `rocker --x11 --devices=/dev/dri tb4 bash`
 
-Now you must decided where and how you want to save your work. You have two options, start from scratch and build everything yourself, or follow along from a finished project. There is also a third option, where you just start the container but use Docker's internal tools to save your work. 
 
-* Preferred workflow: to start from scratch and save your work outside of the container then all you do is create a directory and link it your Docker container using the following command:
+### Saving your Work
+
+You have two primary options of saving your work from the workshop. You can either start from scratch and build everything yourself, or you can follow along from a finished project. 
+
+* [recommended workflow] To start from scratch and save your work outside of the container then all you do is create a workshop directory and link it your Docker container using the following commands:
   * `mkdir workshop`
   * Now run, `rocker --x11 --devices=/dev/dri --volume=<full path to your directory>/workshop:/opt/ros/overlay_ws/src/workshop/ tb4 bash` where the directory has been replaced by your new directory, and container is the container you want to use. 
   * Here's an example from my system: `rocker --x11 --devices=/dev/dri --volume=/home/kscottz/Code/workshop/:/opt/ros/overlay_ws/src/workshop/ tb4 bash`	
 
-* If you want to work from a finished code example, please do the following
+* If you want to work from a completely finished code example, please do the following
   * `mkdir workshop`
   * `cd workshop`
   * `git clone git@github.com:kscottz/tb4_toy.git` -- [here's the code](https://github.com/kscottz/tb4_toy) if you just want to peek. 
   * Now run, `rocker --x11 --devices=/dev/dri --volume=<full path to your directory>/workshop/:/opt/ros/overlay_ws/src/workshop/ tb4 bash` where the directory has been replaced by your new directory, and container is the container you want to use. 
   * Here's an example from my system: `rocker --x11 --devices=/dev/dri --volume=/home/kscottz/Code/workshop:/opt/ros/overlay_ws/src/workshop tb4 bash`	
 
-
-Note that the workshop will require you to work inside the container at all times and should leave your host system untouched. *If you happen to change the Docker container's internal configuration and want to save it, you  will need to use [docker commit](https://docs.docker.com/reference/cli/docker/container/commit/) to save your work.
+Note that the workshop will require you to work inside the container at all times and should leave your host system mostly untouched. *If you happen to change the Docker container's internal configuration and want to save it, you  will need to use [docker commit](https://docs.docker.com/reference/cli/docker/container/commit/) to save your work.
 
 ### File Permissions, Docker, & Saved Work
 
-If you plan to save your work from the workshop it will not have the correct permissions such that they can be edited outside of the container. To fix this you will need to change the ownership of the files. In a directory **outside of the Docker container** run the following command:
+If you plan to save your work from the workshop the files you create inside of the container will not have the correct permissions such that they can be edited outside of the container. To fix this you will need to change the ownership of the files. In a directory **outside of the Docker container** run the following command:
 
 ```
 sudo chown -R $(whoami) ./workshop/
@@ -90,7 +92,7 @@ If your laptop has a fancy graphics card you can enable it by omitting the line:
 
 ### A Note on Editors
 
-The container for this workshop contains most of the common terminal editors found on Linux systems. You are more than welcome to use them. If you mounted your filesystem into Docker you can also use any editor on your host systems to edit files. If you have never used a terminal editor before this may be the easier approach. 
+The container for this workshop contains most of the common terminal editors found on Linux systems. You are more than welcome to use them. If you mounted your filesystem into Docker you can also use any editor on your host system If you have never used a terminal editor before this may be the easier approach. 
 
 ### Want to use just Docker? 
 
