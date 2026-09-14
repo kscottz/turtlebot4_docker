@@ -1,17 +1,17 @@
-# ROSCon 2025 Intro to ROS Workshop
+# ROSCon 2026 Intro to ROS Workshop
 
 ![The TurtleBot 4 Simulator in a Docker Container](/example.png)
 
-# 👉👉👉[The workshop slides are available here](https://docs.google.com/presentation/d/1pMlogpbT0dHpvnoLzJgjlI6LeAo7bHHDb8AAiMo4-3g/edit?usp=sharing)
+# 👉👉👉[The workshop slides are available here](https://docs.google.com/presentation/d/10kHc1RtvZq--NbWuGzYQBuRBQohJN3N-hjYyB_VmB6Q/edit?usp=sharing)
 
 
 ## Turtlebot4 Docker
 
 This Docker container contains [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/), [Gazebo harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu), and the [TurtleBot 4 simulation](https://turtlebot.github.io/turtlebot4-user-manual/). The Docker container has been configured to work well on commodity hardware without a graphics card. Most reasonably configured hardware should be able to run the simulation with a real time factor of at least 0.2.
 
-👉 This Docker container is meant to be used with this [example code for a toy TB4 node](https://github.com/kscottz/tb4_toy) and the associated [ROSCon 2025 Workshop](https://docs.google.com/presentation/d/1pMlogpbT0dHpvnoLzJgjlI6LeAo7bHHDb8AAiMo4-3g/edit?usp=sharing)
+👉 This Docker container is meant to be used with this [example code for a toy TB4 node](https://github.com/kscottz/tb4_toy) and the associated [ROSCon 2026 Workshop](https://docs.google.com/presentation/d/10kHc1RtvZq--NbWuGzYQBuRBQohJN3N-hjYyB_VmB6Q/edit?usp=sharing)
 
-👉 This Docker container includes a full ROS 2 Jazzy Jalisco desktio install. If you would like to brush up on your ROS skills you can work through the ROS 2 tutorials. We suggest you start with the [CLI Tutorials.](https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools.html)
+👉 This Docker container includes a full ROS 2 Jazzy Jalisco desktop install. If you would like to brush up on your ROS skills you can work through the ROS 2 tutorials. We suggest you start with the [CLI Tutorials.](https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools.html)
 
 
 ## Choose Your Own Adventure
