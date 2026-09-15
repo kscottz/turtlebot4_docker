@@ -4,16 +4,16 @@
 
 # 👉👉👉[The workshop slides are available here](https://docs.google.com/presentation/d/10kHc1RtvZq--NbWuGzYQBuRBQohJN3N-hjYyB_VmB6Q/edit?usp=sharing)
 
-## Turtlebot4 Pixi
+## Turtlebot4 Pixi (Recommended) 
 
 New for 2026 Pixi install! New for this year we're excited to offer [Pixi as an install option.](https://github.com/knmcguire/tb4_pixi)
 
-**We recommend this approach for most users, particularly users of Windows and Mac.**
+**We recommend this approach for most users, particularly users of Windows **
 
-If you you choose to use Pixi follow the directions using the link above.
+If you you choose to use Pixi follow the directions using [this link](https://github.com/knmcguire/tb4_pixi).
 
 
-## Turtlebot4 Docker
+## Turtlebot4 Docker Contain
 
 This Docker container contains [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/), [Gazebo harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu), and the [TurtleBot 4 simulation](https://turtlebot.github.io/turtlebot4-user-manual/). The Docker container has been configured to work well on commodity hardware without a graphics card. Most reasonably configured hardware should be able to run the simulation with a real time factor of at least 0.2.
 
@@ -42,14 +42,14 @@ But wait, there's more! Do you just want to try out some of the great tutorials 
 * ✅ Install Rocker (see [instructions](https://github.com/osrf/rocker)). Make sure to setup and use a Python virtual environment.
 * ✅ Note your virtual environment's name and location. You'll need to call `source ./<venv>/bin/activate` before starting your container. 
 
-### ✅ Installing the Pre-Built Docker Container (preferred approach)
+### Installing the Pre-Built Docker Container
 
 If you would like to use the pre-build image run the following commands :
 
-* ✅ `docker pull ghcr.io/kscottz/roscon2025-intro-workshop:jazzy`
+* `docker pull ghcr.io/kscottz/roscon2025-intro-workshop:jazzy`
 * [Container on Github](https://github.com/kscottz/turtlebot4_docker/pkgs/container/roscon2025-intro-workshop)
 * Now change the name of your Docker image using the tag command
-  * ✅ `docker image tag ghcr.io/kscottz/roscon2025-intro-workshop:jazzy tb4`
+  * `docker image tag ghcr.io/kscottz/roscon2025-intro-workshop:jazzy tb4`
 
 
 ### Build the Docker Container from Scratch
