@@ -4,6 +4,14 @@
 
 # 👉👉👉[The workshop slides are available here](https://docs.google.com/presentation/d/10kHc1RtvZq--NbWuGzYQBuRBQohJN3N-hjYyB_VmB6Q/edit?usp=sharing)
 
+## Turtlebot4 Pixi
+
+New for 2026 Pixi install! New for this year we're excited to offer [Pixi as an install option.](https://github.com/knmcguire/tb4_pixi)
+
+**We recommend this approach for most users, particularly users of Windows and Mac.**
+
+If you you choose to use Pixi follow the directions using the link above.
+
 
 ## Turtlebot4 Docker
 
