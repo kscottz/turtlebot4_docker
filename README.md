@@ -4,7 +4,7 @@
 
 # 👉👉👉[The workshop slides are available here](https://docs.google.com/presentation/d/10kHc1RtvZq--NbWuGzYQBuRBQohJN3N-hjYyB_VmB6Q/edit?usp=sharing)
 
-## Turtlebot4 Pixi (Recommended) 
+## ✅ Turtlebot4 Pixi (Recommended) 
 
 New for 2026 Pixi install! New for this year we're excited to offer [Pixi as an install option.](https://github.com/knmcguire/tb4_pixi)
 
@@ -35,12 +35,12 @@ This workshop let's you choose your own adventure. You have two big decisions to
 
 But wait, there's more! Do you just want to try out some of the great tutorials on [docs.ros.org](https://docs.ros.org/en/jazzy/) we also have instructions on how to do that too!
 
-# ✅ Install Dependencies
+# Install Docker Dependencies
 
-* ✅ Install Docker with `sudo apt install docker.io`
-* ✅ You may need to [add yourself to the Docker group](https://stackoverflow.com/questions/21871479/docker-cant-connect-to-docker-daemon) with the command `sudo usermod -aG docker $(whoami)` 
-* ✅ Install Rocker (see [instructions](https://github.com/osrf/rocker)). Make sure to setup and use a Python virtual environment.
-* ✅ Note your virtual environment's name and location. You'll need to call `source ./<venv>/bin/activate` before starting your container. 
+* Install Docker with `sudo apt install docker.io`
+* You may need to [add yourself to the Docker group](https://stackoverflow.com/questions/21871479/docker-cant-connect-to-docker-daemon) with the command `sudo usermod -aG docker $(whoami)` 
+* Install Rocker (see [instructions](https://github.com/osrf/rocker)). Make sure to setup and use a Python virtual environment.
+* Note your virtual environment's name and location. You'll need to call `source ./<venv>/bin/activate` before starting your container. 
 
 ### Installing the Pre-Built Docker Container
 
