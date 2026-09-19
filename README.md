@@ -13,7 +13,7 @@ New for 2026 Pixi install! New for this year we're excited to offer [Pixi as an 
 If you you choose to use Pixi follow the directions using [this link](https://github.com/knmcguire/tb4_pixi).
 
 
-## Turtlebot4 Docker Contain
+## Turtlebot4 Docker Container
 
 This Docker container contains [ROS 2 Jazzy](https://docs.ros.org/en/jazzy/), [Gazebo harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu), and the [TurtleBot 4 simulation](https://turtlebot.github.io/turtlebot4-user-manual/). The Docker container has been configured to work well on commodity hardware without a graphics card. Most reasonably configured hardware should be able to run the simulation with a real time factor of at least 0.2.
 
